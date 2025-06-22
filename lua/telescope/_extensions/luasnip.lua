@@ -162,7 +162,8 @@ M.luasnip_fn = function(opts)
 
                 -- Use first snippet to expand
                 if (#snippetsToExpand > 0) then
-                    vim.cmd(':startinsert!')
+                    vim.cmd('normal! o')
+                    vim.cmd('startinsert')
                     vim.defer_fn(function() luasnip.snip_expand(snippetsToExpand[1]) end, 50)
                 else
                     error(
